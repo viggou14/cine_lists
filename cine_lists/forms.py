@@ -1,9 +1,9 @@
 from django import forms 
-from .models import Topic, Entry
+from .models import Movie, Entry
 
-class TopicForm(forms.ModelForm):
+class MovieForm(forms.ModelForm):
     class Meta:
-        model = Topic
+        model = Movie
         fields = ['text']
         labels = {'text': ''}
 

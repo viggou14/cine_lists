@@ -1,0 +1,14 @@
+{% extends "cine_lists/base.html" %}
+
+{% block content %}
+
+<p>Adicione um novo Filme:</p>
+
+<form action="{% url 'new_movie' %}" method="post">
+    {% csrf_token %}
+    <p>{{form}}</p>
+    <button name="submit"> Adicionar Filme </button>
+
+</form>
+
+{% endblock content %}

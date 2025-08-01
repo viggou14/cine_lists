@@ -1,8 +1,8 @@
 """
-URL configuration for cine_list project.
+URL configuration for learning_log project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.2/movies/http/urls/
+    https://docs.djangoproject.com/en/5.2/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -15,12 +15,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
+from django.contrib.auth import views as auth_views
 from . import views
 
-
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('movies', views.movies, name='movies'),
-    path('new_movie', views.new_movie, name='new_movie'),
-    path('movie', views.movie, name='movie'),
+    path('login', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
 ]

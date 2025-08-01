@@ -2,4 +2,17 @@
 
 {% block content %}
 <P>Catálogo de filmes!</P>
+<h3>Tópicos:</h3>
+<ul>
+    {% for movie in movies %}
+        <li>
+            <p><a href="{% url 'movie' movie.id %}">{{movie}}</a> | <a href="{% url 'remove_entry' movie.id %}">Remover Tópico</a><p>        
+        </li> 
+    {% empty %}
+        <li>Não há tópicos cadastrados...</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'new_movie' %}"> Adicionar Filme</a>
+
 {% endblock content %}

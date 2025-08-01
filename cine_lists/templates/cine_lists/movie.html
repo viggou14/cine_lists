@@ -1,0 +1,18 @@
+{% extends "cine_lists/base.html" %}
+
+{% block content %}
+<h3>Filme: {{movie}}</h3>
+<P>Anotações: </P>
+<p><a href="{% url 'new_movie' topic.id %}">Nova Anotação</a></p>
+
+<ul>
+    {% for entry in entries %}
+        <li>
+            <P>{{entry.date_added | date:'d F, Y H:i'}}</P>
+            <p>{{entry.text | linebreaks}}</p>
+        </li>
+        {% empty %}
+        <li>Não há registros...</li>
+    {% endfor %}
+</ul>
+{% endblock content %}
