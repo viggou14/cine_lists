@@ -1,8 +1,64 @@
-<h3>Cine List</h3><a href="{% url 'index' %}">Menu</a>
+{% load bootstrap5 %}
+{% load static %}
 
-{% block content %}
-{% endblock content %}
+<!DOCTYPE html>
+<html lang="pt_BR">
 
-<footer>
-    <p> Rodapé  </p>
-</footer>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="descripition" content="Aplicação para estudos e anotações">
+<meta name="keywors" content="estudo, estudos, anotações, anotação,">
+<meta name="author" content="Vinicius">
+
+<title>Learning Log</title>
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <!--Página inicial-->
+    <a class="navbar-brand" href="{% url 'index' %}">Cine List</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon">&#128315;</span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+            <!--Tópicos-->
+          <a class="nav-link active" aria-current="page" href="{% url 'movies' %}">Filmes</a>
+        </li>
+        {% if user.is_authenticated %}
+        <!--Textos não clicáveis-->
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Bem vindo, {{ user.username}}</a>
+        </li>
+        <li class="nav-item">
+            <!--Sair-->
+          <a class="nav-link" href="{% url 'logout' %}">Sair</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+            
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="container"> 
+        <div>
+            {% block header %}
+            {% endblock header %}
+        </div> 
+        <div> 
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </div>
+</body>
+
+</html>

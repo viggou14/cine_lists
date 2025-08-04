@@ -21,6 +21,11 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('movies', views.movies, name='movies'),
+    path('movie/<int:movie_id>', views.movie, name='movie'),
     path('new_movie', views.new_movie, name='new_movie'),
-    path('movie', views.movie, name='movie'),
+    path('success', views.success, name='success'),
+    path('new_entry/<movie_id>/', views.new_entry, name='new_entry'),
+    path('edit_entry/<entry_id>', views.edit_entry, name='edit_entry'),
+    path('remove_entry/<entry_id>', views.remove_entry, name='remove_entry'),
+    path('remove_movie/<int:movie_id>', views.remove_movie, name='remove_movie'),
 ]

@@ -1,0 +1,18 @@
+{% extends "cine_lists/base.html" %}
+
+{% block content %}
+<P>Catálogo de filmes!</P>
+<h3>Tópicos:</h3>
+<ul>
+    {% for movie in movies %}
+        <li>
+            <p><a href="{% url 'movie' movie.id%}">{{movie}}</a> | <p><a href="{% url 'remove_movie' movie.id %}">Remover</a>      
+        </li> 
+    {% empty %}
+        <li>Não há filmes cadastrados...</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'new_movie' %}"> Adicionar Filme</a>
+
+{% endblock content %}

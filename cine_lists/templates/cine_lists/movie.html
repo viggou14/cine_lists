@@ -3,13 +3,14 @@
 {% block content %}
 <h3>Filme: {{movie}}</h3>
 <P>Anotações: </P>
-<p><a href="{% url 'new_movie' topic.id %}">Nova Anotação</a></p>
+<p><a href="{% url 'new_entry' movie.id %}">Nova Anotação</a></p>
 
 <ul>
     {% for entry in entries %}
         <li>
             <P>{{entry.date_added | date:'d F, Y H:i'}}</P>
             <p>{{entry.text | linebreaks}}</p>
+            <p><a href="{% url 'edit_entry' entry.id %}">Editar</a> | <a href="{% url 'remove_entry' entry.id %}">Remover</a></p>
         </li>
         {% empty %}
         <li>Não há registros...</li>

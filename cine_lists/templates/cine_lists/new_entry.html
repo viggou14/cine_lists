@@ -1,0 +1,15 @@
+{% extends "cine_lists/base.html" %}
+
+{% block content %}
+<body>
+    <h2><a href="{% url 'movie' movie.id %}">{{movie}}</a><span class="badge text-bg-secondary"></span></h2>
+    <h3><p>Adicione uma nova anotação:</p></h3>
+    
+    <form action="{% url 'new_entry' movie.id %}" method="post">
+        {% csrf_token %}
+        <p>{{form}}</p>   
+        <button type="submit" class="btn btn-secondary btn-lg">Enviar Anotação</button>
+    </form>
+    
+    {% endblock content %}
+</body>

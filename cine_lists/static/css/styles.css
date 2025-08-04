@@ -1,0 +1,15 @@
+nav{
+    background-color: #868686;
+}
+.navbar-brand{
+    color: black;
+}
+.nav-link.disabled{
+    color: #d8d8d8;
+}
+.nav-link.active{
+    color: #000000;
+}
+.nav-link{
+    color: #000000;
+}

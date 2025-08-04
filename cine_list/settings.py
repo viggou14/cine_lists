@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cine_lists',
+    'users',
+
+    #Thrirdparties Apps
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +128,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # URL login page
 LOGIN_URL = 'users/login'
+
+# Bootstrap 5
+BOOTSTRAP5 = {
+    'include_jquery': True,
+}

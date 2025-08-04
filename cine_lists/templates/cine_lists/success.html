@@ -1,0 +1,12 @@
+{% extends "cine_lists/base.html" %}
+
+{% block content %}
+<h1>SUCESSO!!!</h1>
+<p>Filme {{movie}} cadastrado com sucesso! </p>
+<form action="{% url 'new_movie' %}" method="post">
+    {% csrf_token %}
+    <button name="button"> Novo Filme </button>
+
+</form>
+
+{% endblock content %}

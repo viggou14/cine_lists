@@ -1,0 +1,10 @@
+{% extends "cine_lists/base.html" %}
+
+{% block content %}
+<h2>Tem certeza que deseja remover o filme {{movie}}?</h2>
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit">Sim, remover</button>
+    <a href="{% url 'movies' %}">Cancelar</a>
+</form>
+{% endblock content %}
